@@ -69,10 +69,6 @@ body {
     font-family: var(--font-urdu);
 }
 
-[dir="rtl"][lang="hi"] {
-    font-family: var(--font-hindi);
-}
-
 /* Animated Background */
 .animated-bg {
     position: fixed;

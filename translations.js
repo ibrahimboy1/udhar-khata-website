@@ -5,7 +5,6 @@
 const LANGUAGES = [
     { code: 'en', name: 'English', native: 'English' },
     { code: 'ur', name: 'Urdu', native: 'اردو', rtl: true },
-    { code: 'hi', name: 'Hindi', native: 'हिन्दी' },
     { code: 'ar', name: 'Arabic', native: 'العربية', rtl: true },
     { code: 'zh', name: 'Chinese', native: '中文' },
     { code: 'es', name: 'Spanish', native: 'Español' },
@@ -61,10 +60,10 @@ const TRANSLATIONS = {
         footerText: '© 2024 Hisab Banao. All Rights Reserved.',
         aboutSection: {
             title: 'About Hisab Banao',
-            subtitle: 'Digitalizing India\'s Ledger System',
+            subtitle: 'Your Digital Ledger Solution',
             developerTitle: 'Lead Developer & Creator',
             whoWeAreTitle: 'Who We Are',
-            whoWeAreDesc: 'Hisab Banao is a passionate project developed to help small business owners, shopkeepers, and individuals manage their daily transactions (Len-Den) efficiently. We understand that carrying a physical notebook (Bahi Khata) is outdated and risky. Our mission is to provide a secure, digital alternative that lives right in your pocket.',
+            whoWeAreDesc: 'Hisab Banao is a passionate project developed to help small business owners, shopkeepers, and individuals manage their daily transactions efficiently. We understand that carrying a physical notebook is outdated and risky. Our mission is to provide a secure, digital alternative that lives right in your pocket.',
             transparencyTitle: 'Transparency & Security',
             transparencyDesc: 'We take your privacy seriously. Your financial data belongs to you. We do not sell your data. We only ask for permissions required for core features like Backup and Voice Input.',
             madeWith: 'Made with'
@@ -76,7 +75,7 @@ const TRANSLATIONS = {
             step2: '2. Dashboard Overview',
             step3: '3. Managing Customers',
             step4: '4. Adding Transactions',
-            voiceInput: 'Tap the Mic icon and speak naturally, e.g., \'Amit 500\' to add instantly.',
+            voiceInput: 'Tap the Mic icon and speak naturally, e.g., \'Ahmed 500\' to add instantly.',
             step5: 'Reports & Sharing',
             step6: 'Settings & Security'
         },
@@ -114,7 +113,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 حساب بناؤ۔ جملہ حقوق محفوظ ہیں۔',
         aboutSection: {
             title: 'حساب بناؤ کے بارے میں',
-            subtitle: 'ہندوستان کے لیجر نظام کو ڈیجیٹل بنانا',
+            subtitle: 'آپ کا ڈیجیٹل لیجر حل',
             developerTitle: 'لیڈ ڈویلپر اور بانی',
             whoWeAreTitle: 'ہم کون ہیں',
             whoWeAreDesc: 'حساب بناؤ ایک پرجوش پروجیکٹ ہے جو چھوٹے کاروباری مالکان، دکانداروں اور افراد کو روزانہ کے لین دین کو مؤثر طریقے سے منظم کرنے میں مدد کرنے کے لیے بنایا گیا ہے۔ ہم سمجھتے ہیں کہ بہی کھاتہ رکھنا پرانا اور خطرناک ہے۔ ہمارا مشن ایک محفوظ، ڈیجیٹل متبادل فراہم کرنا ہے۔',
@@ -129,55 +128,9 @@ const TRANSLATIONS = {
             step2: '2. ڈیش بورڈ کا جائزہ',
             step3: '3. گاہکوں کا انتظام',
             step4: '4. لین دین شامل کرنا',
-            voiceInput: 'مائیک آئیکن پر ٹیپ کریں اور قدرتی طور پر بولیں، مثلاً، \'امیت 500\' فوری طور پر شامل کرنے کے لیے۔',
+            voiceInput: 'مائیک آئیکن پر ٹیپ کریں اور قدرتی طور پر بولیں، مثلاً، \'احمد 500\' فوری طور پر شامل کرنے کے لیے۔',
             step5: 'رپورٹس اور شیئرنگ',
             step6: 'سیٹنگز اور سیکیورٹی'
-        }
-    },
-    hi: {
-        appName: 'हिसाब बनाओ',
-        nav: {
-            home: 'होम',
-            about: 'ऐप के बारे में',
-            guide: 'यूज़र गाइड'
-        },
-        heroTitle: 'हिसाब बनाओ के साथ अपने वित्त पर नियंत्रण रखें',
-        heroSubtitle: 'एंड्रॉइड के लिए अंतिम लेजर ऐप। सुरक्षित, तेज़, और वॉइस-सक्षम।',
-        downloadBtn: 'हिसाब बनाओ डाउनलोड करें',
-        featuresTitle: 'प्रीमियम फीचर्स',
-        installTitle: 'इंस्टॉलेशन गाइड',
-        steps: {
-            download: 'नीचे दिए गए लिंक से APK फ़ाइल डाउनलोड करें।',
-            install: 'सेटिंग्स में अज्ञात स्रोतों से इंस्टॉलेशन की अनुमति दें।',
-            setup: 'स्वचालित क्लाउड बैकअप के लिए Google से लॉगिन करें।'
-        },
-        contactTitle: 'प्राथमिकता सहायता',
-        contactDesc: 'डेवलपर से सीधा संपर्क। ईमेल के माध्यम से तत्काल सहायता प्राप्त करें।',
-        nameLabel: 'आपका नाम',
-        emailLabel: 'आपका ईमेल',
-        messageLabel: 'अपनी समस्या बताएं',
-        sendBtn: 'संदेश भेजें',
-        footerText: '© 2024 हिसाब बनाओ। सर्वाधिकार सुरक्षित।',
-        aboutSection: {
-            title: 'हिसाब बनाओ के बारे में',
-            subtitle: 'भारत की लेजर प्रणाली को डिजिटल बनाना',
-            developerTitle: 'लीड डेवलपर और निर्माता',
-            whoWeAreTitle: 'हम कौन हैं',
-            whoWeAreDesc: 'हिसाब बनाओ एक जुनूनी परियोजना है जो छोटे व्यापार मालिकों, दुकानदारों और व्यक्तियों को दैनिक लेन-देन को कुशलतापूर्वक प्रबंधित करने में मदद करने के लिए विकसित की गई है। हम समझते हैं कि बही खाता रखना पुराना और जोखिम भरा है। हमारा मिशन एक सुरक्षित, डिजिटल विकल्प प्रदान करना है।',
-            transparencyTitle: 'पारदर्शिता और सुरक्षा',
-            transparencyDesc: 'हम आपकी गोपनीयता को गंभीरता से लेते हैं। आपका वित्तीय डेटा आपका है। हम आपका डेटा नहीं बेचते। हम केवल बैकअप और वॉइस इनपुट जैसी मुख्य सुविधाओं के लिए आवश्यक अनुमतियाँ माँगते हैं।',
-            madeWith: 'के साथ बनाया'
-        },
-        guideSection: {
-            title: 'यूज़र गाइड',
-            step1: '1. शुरू करना',
-            loginOptions: 'लॉगिन विकल्प: Google लॉगिन (अनुशंसित) या गेस्ट मोड।',
-            step2: '2. डैशबोर्ड अवलोकन',
-            step3: '3. ग्राहकों का प्रबंधन',
-            step4: '4. लेनदेन जोड़ना',
-            voiceInput: 'माइक आइकन पर टैप करें और स्वाभाविक रूप से बोलें, जैसे, \'अमित 500\' तुरंत जोड़ने के लिए।',
-            step5: 'रिपोर्ट और शेयरिंग',
-            step6: 'सेटिंग्स और सुरक्षा'
         }
     },
     ar: {
@@ -206,7 +159,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 حساب بناؤ. جميع الحقوق محفوظة.',
         aboutSection: {
             title: 'عن حساب بناؤ',
-            subtitle: 'رقمنة نظام دفتر الأستاذ الهندي',
+            subtitle: 'حلك الرقمي لدفتر الأستاذ',
             developerTitle: 'المطور الرئيسي والمؤسس',
             whoWeAreTitle: 'من نحن',
             whoWeAreDesc: 'حساب بناؤ هو مشروع شغوف تم تطويره لمساعدة أصحاب الأعمال الصغيرة وأصحاب المتاجر والأفراد على إدارة معاملاتهم اليومية بكفاءة. نحن نفهم أن حمل دفتر ملاحظات فعلي أمر عفا عليه الزمن ومحفوف بالمخاطر. مهمتنا هي توفير بديل رقمي آمن.',
@@ -252,7 +205,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 Hisab Banao。保留所有权利。',
         aboutSection: {
             title: '关于 Hisab Banao',
-            subtitle: '印度账本系统数字化',
+            subtitle: '您的数字账本解决方案',
             developerTitle: '首席开发者和创始人',
             whoWeAreTitle: '我们是谁',
             whoWeAreDesc: 'Hisab Banao 是一个热情的项目，旨在帮助小企业主、店主和个人有效管理日常交易。我们理解携带实体笔记本已经过时且有风险。我们的使命是提供一个安全的数字替代方案。',
@@ -267,7 +220,7 @@ const TRANSLATIONS = {
             step2: '2. 仪表板概览',
             step3: '3. 管理客户',
             step4: '4. 添加交易',
-            voiceInput: '点击麦克风图标并自然说话，例如，"阿米特 500"即可立即添加。',
+            voiceInput: '点击麦克风图标并自然说话，例如，"艾哈迈德 500"即可立即添加。',
             step5: '报告和分享',
             step6: '设置和安全'
         }
@@ -298,7 +251,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 Hisab Banao. Todos los Derechos Reservados.',
         aboutSection: {
             title: 'Acerca de Hisab Banao',
-            subtitle: 'Digitalizando el Sistema de Libro Mayor de la India',
+            subtitle: 'Tu Solución de Libro Mayor Digital',
             developerTitle: 'Desarrollador Principal y Creador',
             whoWeAreTitle: 'Quiénes Somos',
             whoWeAreDesc: 'Hisab Banao es un proyecto apasionado desarrollado para ayudar a pequeños empresarios, tenderos e individuos a gestionar sus transacciones diarias de manera eficiente. Entendemos que llevar un cuaderno físico es anticuado y arriesgado. Nuestra misión es proporcionar una alternativa digital y segura.',
@@ -313,7 +266,7 @@ const TRANSLATIONS = {
             step2: '2. Resumen del Panel',
             step3: '3. Gestionar Clientes',
             step4: '4. Agregar Transacciones',
-            voiceInput: 'Toca el ícono del micrófono y habla naturalmente, ej., \'Amit 500\' para agregar instantáneamente.',
+            voiceInput: 'Toca el ícono del micrófono y habla naturalmente, ej., \'Ahmed 500\' para agregar instantáneamente.',
             step5: 'Informes y Compartir',
             step6: 'Configuración y Seguridad'
         }
@@ -359,7 +312,7 @@ const TRANSLATIONS = {
             step2: '2. Aperçu du Tableau de Bord',
             step3: '3. Gérer les Clients',
             step4: '4. Ajouter des Transactions',
-            voiceInput: 'Appuyez sur l\'icône du micro et parlez naturellement, par ex., \'Amit 500\' pour ajouter instantanément.',
+            voiceInput: 'Appuyez sur l\'icône du micro et parlez naturellement, par ex., \'Ahmed 500\' pour ajouter instantanément.',
             step5: 'Rapports et Partage',
             step6: 'Paramètres et Sécurité'
         }
@@ -451,7 +404,7 @@ const TRANSLATIONS = {
             step2: '2. Visão Geral do Painel',
             step3: '3. Gerenciar Clientes',
             step4: '4. Adicionar Transações',
-            voiceInput: 'Toque no ícone do microfone e fale naturalmente, ex., \'Amit 500\' para adicionar instantaneamente.',
+            voiceInput: 'Toque no ícone do microfone e fale naturalmente, ex., \'Ahmed 500\' para adicionar instantaneamente.',
             step5: 'Relatórios e Compartilhamento',
             step6: 'Configurações e Segurança'
         }
@@ -497,7 +450,7 @@ const TRANSLATIONS = {
             step2: '2. Dashboard-Übersicht',
             step3: '3. Kunden Verwalten',
             step4: '4. Transaktionen Hinzufügen',
-            voiceInput: 'Tippen Sie auf das Mikrofon-Symbol und sprechen Sie natürlich, z.B. \'Amit 500\' zum sofortigen Hinzufügen.',
+            voiceInput: 'Tippen Sie auf das Mikrofon-Symbol und sprechen Sie natürlich, z.B. \'Ahmed 500\' zum sofortigen Hinzufügen.',
             step5: 'Berichte und Teilen',
             step6: 'Einstellungen und Sicherheit'
         }
@@ -574,7 +527,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 Hisab Banao. Hak Cipta Dilindungi.',
         aboutSection: {
             title: 'Tentang Hisab Banao',
-            subtitle: 'Digitalisasi Sistem Buku Besar India',
+            subtitle: 'Solusi Buku Besar Digital Anda',
             developerTitle: 'Pengembang Utama dan Pencipta',
             whoWeAreTitle: 'Siapa Kami',
             whoWeAreDesc: 'Hisab Banao adalah proyek yang dikembangkan dengan penuh semangat untuk membantu pemilik usaha kecil, pemilik toko, dan individu mengelola transaksi harian mereka secara efisien. Kami memahami bahwa membawa buku catatan fisik sudah ketinggalan zaman dan berisiko. Misi kami adalah menyediakan alternatif digital yang aman.',
@@ -589,7 +542,7 @@ const TRANSLATIONS = {
             step2: '2. Ikhtisar Dashboard',
             step3: '3. Mengelola Pelanggan',
             step4: '4. Menambahkan Transaksi',
-            voiceInput: 'Ketuk ikon Mic dan bicara secara alami, misalnya, \'Amit 500\' untuk menambahkan secara instan.',
+            voiceInput: 'Ketuk ikon Mic dan bicara secara alami, misalnya, \'Ahmed 500\' untuk menambahkan secara instan.',
             step5: 'Laporan dan Berbagi',
             step6: 'Pengaturan dan Keamanan'
         }
@@ -620,7 +573,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 Hisab Banao. Tüm Hakları Saklıdır.',
         aboutSection: {
             title: 'Hisab Banao Hakkında',
-            subtitle: 'Hindistan\'ın Defter Sistemini Dijitalleştirme',
+            subtitle: 'Dijital Defter Çözümünüz',
             developerTitle: 'Baş Geliştirici ve Yaratıcı',
             whoWeAreTitle: 'Biz Kimiz',
             whoWeAreDesc: 'Hisab Banao, küçük işletme sahiplerinin, esnafın ve bireylerin günlük işlemlerini verimli bir şekilde yönetmelerine yardımcı olmak için geliştirilen tutkulu bir projedir. Fiziksel bir defter taşımanın modası geçmiş ve riskli olduğunu anlıyoruz. Misyonumuz güvenli, dijital bir alternatif sunmaktır.',
@@ -635,7 +588,7 @@ const TRANSLATIONS = {
             step2: '2. Kontrol Paneli Genel Bakış',
             step3: '3. Müşterileri Yönetme',
             step4: '4. İşlem Ekleme',
-            voiceInput: 'Mikrofon simgesine dokunun ve doğal konuşun, örn., \'Amit 500\' anında eklemek için.',
+            voiceInput: 'Mikrofon simgesine dokunun ve doğal konuşun, örn., \'Ahmed 500\' anında eklemek için.',
             step5: 'Raporlar ve Paylaşım',
             step6: 'Ayarlar ve Güvenlik'
         }
@@ -758,7 +711,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 Hisab Banao. Tutti i Diritti Riservati.',
         aboutSection: {
             title: 'Informazioni su Hisab Banao',
-            subtitle: 'Digitalizzazione del Sistema Contabile Indiano',
+            subtitle: 'La Tua Soluzione Contabile Digitale',
             developerTitle: 'Sviluppatore Principale e Creatore',
             whoWeAreTitle: 'Chi Siamo',
             whoWeAreDesc: 'Hisab Banao è un progetto appassionato sviluppato per aiutare piccoli imprenditori, negozianti e privati a gestire le transazioni quotidiane in modo efficiente.',
@@ -942,7 +895,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 Hisab Banao. Alle Rechten Voorbehouden.',
         aboutSection: {
             title: 'Over Hisab Banao',
-            subtitle: 'Digitalisering van India\'s Grootboeksysteem',
+            subtitle: 'Uw Digitale Grootboekoplossing',
             developerTitle: 'Hoofdontwikkelaar en Maker',
             whoWeAreTitle: 'Wie Wij Zijn',
             whoWeAreDesc: 'Hisab Banao is een gepassioneerd project ontwikkeld om kleine ondernemers, winkeliers en individuen te helpen hun dagelijkse transacties efficiënt te beheren.',
@@ -1080,7 +1033,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 Hisab Banao. Hak Cipta Terpelihara.',
         aboutSection: {
             title: 'Tentang Hisab Banao',
-            subtitle: 'Mendigitalkan Sistem Lejar India',
+            subtitle: 'Penyelesaian Lejar Digital Anda',
             developerTitle: 'Pembangun Utama dan Pencipta',
             whoWeAreTitle: 'Siapa Kami',
             whoWeAreDesc: 'Hisab Banao ialah projek bersemangat yang dibangunkan untuk membantu pemilik perniagaan kecil, pemilik kedai dan individu menguruskan transaksi harian mereka dengan cekap.',
@@ -1172,7 +1125,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 Hisab Banao. Haki Zote Zimehifadhiwa.',
         aboutSection: {
             title: 'Kuhusu Hisab Banao',
-            subtitle: 'Kudigitisha Mfumo wa Ledger wa India',
+            subtitle: 'Suluhisho Lako la Kidijitali la Ledger',
             developerTitle: 'Msanidi Mkuu na Muundaji',
             whoWeAreTitle: 'Sisi Ni Nani',
             whoWeAreDesc: 'Hisab Banao ni mradi wa shauku ulioendelezwa kusaidia wamiliki wa biashara ndogo, wamiliki wa maduka, na watu binafsi kusimamia miamala yao ya kila siku kwa ufanisi.',

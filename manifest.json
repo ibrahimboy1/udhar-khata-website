@@ -1,7 +1,7 @@
 {
-    "name": "Hisab Banao - Digital Udhar Khata",
+    "name": "Hisab Banao - Smart Ledger",
     "short_name": "Hisab Banao",
-    "description": "Free digital udhar khata app. Track credits easily without internet.",
+    "description": "Free digital ledger app. Track credits easily without internet.",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#0a0a0f",

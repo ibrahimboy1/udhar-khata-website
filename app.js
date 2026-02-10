@@ -162,8 +162,6 @@ function setLanguage(langCode) {
         document.body.style.fontFamily = 'var(--font-arabic)';
     } else if (langCode === 'ur') {
         document.body.style.fontFamily = 'var(--font-urdu)';
-    } else if (langCode === 'hi') {
-        document.body.style.fontFamily = 'var(--font-hindi)';
     } else {
         document.body.style.fontFamily = 'var(--font-main)';
     }
