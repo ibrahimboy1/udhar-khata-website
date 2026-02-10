@@ -1,0 +1,51 @@
+{
+    "name": "Hisab Banao - Digital Udhar Khata",
+    "short_name": "Hisab Banao",
+    "description": "Free digital udhar khata app. Track credits easily without internet.",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#0a0a0f",
+    "theme_color": "#6366f1",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "categories": [
+        "finance",
+        "business",
+        "utilities"
+    ],
+    "icons": [
+        {
+            "src": "images/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "images/icon.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Download App",
+            "short_name": "Download",
+            "url": "/index.html#download"
+        },
+        {
+            "name": "Features",
+            "short_name": "Features",
+            "url": "/index.html#features"
+        }
+    ],
+    "related_applications": [
+        {
+            "platform": "play",
+            "url": "https://play.google.com/store/apps/details?id=com.hisabbanao.app",
+            "id": "com.hisabbanao.app"
+        }
+    ],
+    "prefer_related_applications": false
+}

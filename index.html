@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Hisab Banao - Smart Ledger</title>
+    <meta name="description"
+        content="Free digital udhar khata app. Track credits easily without internet. Available in 25+ languages.">
+    <meta name="keywords" content="udhar khata, ledger, hisab, credit tracker, free app, offline">
+    <meta name="author" content="Hisab Banao Team">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Hisab Banao">
+    <meta name="application-name" content="Hisab Banao">
+    <meta name="msapplication-TileColor" content="#6366f1">
+    <meta name="msapplication-config" content="browserconfig.xml">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Book Favicon (SVG) -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z'/><path d='M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z'/></svg>">
+
+    <!-- Favicon & Icons for PWA -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icon-152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/icon-144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/icon-120.png">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#3b82f6">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="grid-overlay"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="logo" onclick="navigateTo('home')">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    </svg>
+                </div>
+                <span class="logo-text" data-key="appName">Hisab Banao</span>
+            </button>
+
+            <!-- Desktop Nav -->
+            <div class="nav-links desktop-nav">
+                <button onclick="navigateTo('home')" class="nav-link active" data-view="home"
+                    data-key="nav.home">Home</button>
+                <button onclick="navigateTo('about')" class="nav-link" data-view="about" data-key="nav.about">About
+                    App</button>
+                <button onclick="navigateTo('guide')" class="nav-link" data-view="guide" data-key="nav.guide">User
+                    Guide</button>
+
+                <!-- Language Dropdown -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn" onclick="toggleLangMenu()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                        <span id="currentLangCode">EN</span>
+                    </button>
+                    <div class="lang-menu" id="langMenu">
+                        <div class="lang-search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                            <input type="text" id="langSearchInput" placeholder="Search language..."
+                                oninput="filterLanguages()">
+                        </div>
+                        <div class="lang-list" id="langList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu - OUTSIDE navbar for proper z-index stacking -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <button onclick="navigateTo('home')" class="mobile-nav-link" data-view="home"
+                data-key="nav.home">Home</button>
+            <button onclick="navigateTo('about')" class="mobile-nav-link" data-view="about" data-key="nav.about">About
+                App</button>
+            <button onclick="navigateTo('guide')" class="mobile-nav-link" data-view="guide" data-key="nav.guide">User
+                Guide</button>
+        </div>
+        <div class="mobile-lang-section">
+            <p class="mobile-lang-title">SELECT LANGUAGE</p>
+            <div class="mobile-lang-search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" id="mobileLangSearchInput" placeholder="Find language..."
+                    oninput="filterMobileLanguages()">
+            </div>
+            <div class="mobile-lang-grid" id="mobileLangGrid"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- HOME VIEW -->
+        <div id="view-home" class="view active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <h1 class="hero-title animate-fade-up">
+                            <span class="gradient-text" data-key="heroTitle">Master Your Finances with Hisab
+                                Banao</span>
+                        </h1>
+                        <p class="hero-subtitle animate-fade-up delay-1" data-key="heroSubtitle">The ultimate ledger app
+                            for Android. Secure, Fast, and Voice-Enabled.</p>
+
+                        <div class="hero-buttons animate-fade-up delay-2">
+                            <a href="https://github.com/ibrahimboy1/apk23/releases/latest/download/Hisab-Banao.apk"
+                                class="btn btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                                <span data-key="downloadBtn">Download Hisab Banao</span>
+                            </a>
+                            <div class="version-dropdown">
+                                <button class="btn btn-secondary" onclick="toggleVersions()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    <span class="version-text-full">View All Versions</span>
+                                    <span class="version-text-short">Versions</span>
+                                    <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </button>
+                                <div class="version-menu" id="versionMenu">
+                                    <div class="version-header">Select Version</div>
+                                    <a href="https://github.com/ibrahimboy1/apk23/releases/download/hisab-banao-v2.0/Hisab-Banao.apk"
+                                        class="version-item">
+                                        <div class="version-badge v2">V2</div>
+                                        <div class="version-info">
+                                            <div class="version-name">Version 2.0</div>
+                                            <div class="version-desc">Stable Release</div>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                            <polyline points="7 10 12 15 17 10" />
+                                            <line x1="12" y1="15" x2="12" y2="3" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://github.com/ibrahimboy1/apk23/releases/download/hisab-pro-v1.0/hisab-pro.apk"
+                                        class="version-item">
+                                        <div class="version-badge v1">V1</div>
+                                        <div class="version-info">
+                                            <div class="version-name">Version 1.0</div>
+                                            <div class="version-desc">Legacy Release</div>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                            <polyline points="7 10 12 15 17 10" />
+                                            <line x1="12" y1="15" x2="12" y2="3" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="hero-note animate-fade-up delay-3">Supports Android 8.0+ • 100% Free & Secure •
+                            Developer: M Ibrahim Memon</p>
+                    </div>
+
+                    <!-- Phone Mockup -->
+                    <div class="hero-phone animate-fade-up delay-2">
+                        <div class="phone-frame">
+                            <div class="phone-buttons left-1"></div>
+                            <div class="phone-buttons left-2"></div>
+                            <div class="phone-buttons right"></div>
+                            <div class="phone-screen">
+                                <div class="phone-header">
+                                    <span class="phone-app-name" data-key="appName">Hisab Banao</span>
+                                    <div class="phone-icons">
+                                        <div class="phone-icon"></div>
+                                        <div class="phone-icon"></div>
+                                    </div>
+                                </div>
+                                <div class="phone-content">
+                                    <div class="phone-card main-card">
+                                        <div class="card-avatar">N</div>
+                                        <div class="card-info">
+                                            <div class="card-label">Total Balance</div>
+                                            <div class="card-amount">Rs 13.6k</div>
+                                        </div>
+                                    </div>
+                                    <div class="phone-card list-item">
+                                        <div class="item-avatar orange">A</div>
+                                        <div class="item-name">Customer 1</div>
+                                        <div class="item-amount">- Rs 150</div>
+                                    </div>
+                                    <div class="phone-card list-item">
+                                        <div class="item-avatar purple">B</div>
+                                        <div class="item-name">Customer 2</div>
+                                        <div class="item-amount">- Rs 300</div>
+                                    </div>
+                                    <div class="phone-card list-item">
+                                        <div class="item-avatar pink">C</div>
+                                        <div class="item-name">Customer 3</div>
+                                        <div class="item-amount">- Rs 450</div>
+                                    </div>
+                                </div>
+                                <div class="phone-fab">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="section-container">
+                    <div class="section-header animate-on-scroll">
+                        <h2 class="section-title" data-key="featuresTitle">Premium Features</h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card animate-on-scroll delay-1">
+                            <div class="feature-glow"></div>
+                            <div class="feature-icon cyan">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                    <line x1="12" y1="19" x2="12" y2="22" />
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Smart Voice Input</h3>
+                            <p class="feature-desc">Speak naturally to add transactions. 'Amit gave 500' works
+                                instantly.</p>
+                        </div>
+                        <div class="feature-card animate-on-scroll delay-2">
+                            <div class="feature-glow"></div>
+                            <div class="feature-icon blue">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Cloud Backup</h3>
+                            <p class="feature-desc">Never lose data. Sync securely with Google Firebase.</p>
+                        </div>
+                        <div class="feature-card animate-on-scroll delay-3">
+                            <div class="feature-glow"></div>
+                            <div class="feature-icon green">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    <path d="m9 12 2 2 4-4" />
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">100% Secure</h3>
+                            <p class="feature-desc">Your financial data stays private. App Lock supported.</p>
+                        </div>
+                        <div class="feature-card animate-on-scroll delay-4">
+                            <div class="feature-glow"></div>
+                            <div class="feature-icon orange">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                    <line x1="10" y1="9" x2="8" y2="9" />
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">PDF Reports</h3>
+                            <p class="feature-desc">Export professional PDF statements for your customers.</p>
+                        </div>
+                        <div class="feature-card animate-on-scroll delay-5">
+                            <div class="feature-glow"></div>
+                            <div class="feature-icon purple">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                    <line x1="12" y1="18" x2="12.01" y2="18" />
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Offline First</h3>
+                            <p class="feature-desc">Works perfectly without internet. Syncs when online.</p>
+                        </div>
+                        <div class="feature-card animate-on-scroll delay-6">
+                            <div class="feature-glow"></div>
+                            <div class="feature-icon red">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Biometric Lock</h3>
+                            <p class="feature-desc">Use fingerprint or PIN to secure your ledger.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Installation Guide Section -->
+            <section class="installation">
+                <div class="section-container">
+                    <h2 class="section-title animate-on-scroll" data-key="installTitle">Installation Guide</h2>
+                    <div class="install-timeline">
+                        <div class="timeline-line"></div>
+                        <div class="install-step animate-on-scroll step-left">
+                            <div class="step-content">
+                                <div class="step-card">
+                                    <h3>Step 1</h3>
+                                    <p data-key="steps.download">Download the APK file from the link below.</p>
+                                </div>
+                            </div>
+                            <div class="step-icon blue">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                            </div>
+                            <div class="step-spacer"></div>
+                        </div>
+                        <div class="install-step animate-on-scroll step-right">
+                            <div class="step-spacer"></div>
+                            <div class="step-icon purple">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path
+                                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                                </svg>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-card">
+                                    <h3>Step 2</h3>
+                                    <p data-key="steps.install">Allow installation from unknown sources in settings.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="install-step animate-on-scroll step-left">
+                            <div class="step-content">
+                                <div class="step-card">
+                                    <h3>Step 3</h3>
+                                    <p data-key="steps.setup">Login with Google for automatic cloud backup.</p>
+                                </div>
+                            </div>
+                            <div class="step-icon green">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                            </div>
+                            <div class="step-spacer"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Form Section -->
+            <section class="contact">
+                <div class="section-container">
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-glow"></div>
+                        <div class="contact-header">
+                            <h2 class="section-title" data-key="contactTitle">Priority Support</h2>
+                            <p class="contact-desc" data-key="contactDesc">Direct line to the developer. Get instant
+                                help via email.</p>
+                            <div class="contact-email">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <span>ibrahimtayyab969@gmail.com</span>
+                            </div>
+                        </div>
+                        <form id="contactForm" class="contact-form" onsubmit="handleContactSubmit(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label data-key="nameLabel">Your Name</label>
+                                    <input type="text" id="contactName" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label data-key="emailLabel">Your Email</label>
+                                    <input type="email" id="contactEmail" placeholder="your@email.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label data-key="messageLabel">Describe your issue</label>
+                                <textarea id="contactMessage" rows="4" placeholder="How can we help you?"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                                <span data-key="sendBtn">Send Message</span>
+                            </button>
+                        </form>
+                        <div class="contact-success" id="contactSuccess">
+                            <div class="success-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                            </div>
+                            <h3>Opening Email App</h3>
+                            <p>Your message has been drafted. Please hit <b>send</b> in your email app to complete the
+                                request.</p>
+                            <button onclick="closeContactSuccess()" class="btn btn-secondary">I've Sent It →</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ABOUT VIEW -->
+        <div id="view-about" class="view">
+            <section class="about-section">
+                <div class="section-container">
+                    <div class="about-header animate-on-scroll">
+                        <h1 class="page-title" data-key="aboutSection.title">About Hisab Banao</h1>
+                        <p class="page-subtitle" data-key="aboutSection.subtitle">Digitalizing India's Ledger System</p>
+                    </div>
+
+                    <div class="about-cards">
+                        <div class="about-card developer-card animate-on-scroll">
+                            <div class="dev-avatar">IM</div>
+                            <div class="dev-info">
+                                <h2 data-key="aboutSection.developerTitle">Lead Developer & Creator</h2>
+                                <p class="dev-name">M Ibrahim Memon</p>
+                                <div class="dev-links">
+                                    <a href="https://github.com/Ibrahim-Tayyab?tab=" target="_blank" class="dev-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                        </svg>
+                                        GitHub Profile
+                                    </a>
+                                    <a href="mailto:ibrahimtayyab969@gmail.com" class="dev-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                            <polyline points="22,6 12,13 2,6" />
+                                        </svg>
+                                        Contact
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-card animate-on-scroll delay-1">
+                            <div class="about-icon primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="16 18 22 12 16 6" />
+                                    <polyline points="8 6 2 12 8 18" />
+                                </svg>
+                            </div>
+                            <div class="about-text">
+                                <h2 data-key="aboutSection.whoWeAreTitle">Who We Are</h2>
+                                <p data-key="aboutSection.whoWeAreDesc">Hisab Banao is a passionate project developed to
+                                    help small business owners, shopkeepers, and individuals manage their daily
+                                    transactions (Len-Den) efficiently. We understand that carrying a physical notebook
+                                    (Bahi Khata) is outdated and risky. Our mission is to provide a secure, digital
+                                    alternative that lives right in your pocket.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-card animate-on-scroll delay-2">
+                            <div class="about-icon green">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                            <div class="about-text">
+                                <h2 data-key="aboutSection.transparencyTitle">Transparency & Security</h2>
+                                <p data-key="aboutSection.transparencyDesc">We take your privacy seriously. Your
+                                    financial data belongs to you. We do not sell your data. We only ask for permissions
+                                    required for core features like Backup and Voice Input.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-footer animate-on-scroll delay-3">
+                            <p><span data-key="aboutSection.madeWith">Made with</span> <span class="heart">❤️</span> by
+                                M Ibrahim Memon</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact">
+                <div class="section-container">
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-glow"></div>
+                        <div class="contact-header">
+                            <h2 class="section-title" data-key="contactTitle">Priority Support</h2>
+                            <p class="contact-desc" data-key="contactDesc">Direct line to the developer. Get instant
+                                help via email.</p>
+                            <div class="contact-email">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <span>ibrahimtayyab969@gmail.com</span>
+                            </div>
+                        </div>
+                        <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label data-key="nameLabel">Your Name</label>
+                                    <input type="text" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label data-key="emailLabel">Your Email</label>
+                                    <input type="email" placeholder="your@email.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label data-key="messageLabel">Describe your issue</label>
+                                <textarea rows="4" placeholder="How can we help you?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                                <span data-key="sendBtn">Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- GUIDE VIEW -->
+        <div id="view-guide" class="view">
+            <section class="guide-section">
+                <div class="section-container">
+                    <div class="guide-header animate-on-scroll">
+                        <div class="guide-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            </svg>
+                        </div>
+                        <h1 class="page-title" data-key="guideSection.title">User Guide</h1>
+                    </div>
+
+                    <div class="guide-grid">
+                        <div class="guide-card full-width animate-on-scroll">
+                            <h2 class="guide-card-title primary" data-key="guideSection.step1">1. Getting Started</h2>
+                            <div class="guide-box">
+                                <p data-key="guideSection.loginOptions">Login Options: Google Login (Recommended) or
+                                    Guest Mode.</p>
+                            </div>
+                        </div>
+
+                        <div class="guide-card animate-on-scroll delay-1">
+                            <h2 class="guide-card-title green" data-key="guideSection.step2">2. Dashboard Overview</h2>
+                            <ul class="guide-list">
+                                <li>Total To Give (Diye)</li>
+                                <li>Total To Take (Liye)</li>
+                            </ul>
+                        </div>
+                        <div class="guide-card animate-on-scroll delay-2">
+                            <h2 class="guide-card-title orange" data-key="guideSection.step3">3. Managing Customers</h2>
+                            <p>Tap + to add, Tap profile to edit/delete.</p>
+                        </div>
+
+                        <div class="guide-card full-width voice-card animate-on-scroll delay-3">
+                            <div class="voice-bg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                    <line x1="12" y1="19" x2="12" y2="22" />
+                                </svg>
+                            </div>
+                            <h2 class="guide-card-title cyan" data-key="guideSection.step4">4. Adding Transactions</h2>
+                            <div class="voice-content">
+                                <h3><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                        <line x1="12" y1="19" x2="12" y2="22" />
+                                    </svg> Smart Voice</h3>
+                                <p data-key="guideSection.voiceInput">Tap the Mic icon and speak naturally, e.g., 'Amit
+                                    500' to add instantly.</p>
+                            </div>
+                        </div>
+
+                        <div class="guide-card animate-on-scroll delay-4">
+                            <h2 class="guide-card-title purple">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                </svg>
+                                <span data-key="guideSection.step5">Reports & Sharing</span>
+                            </h2>
+                            <p>PDF, Video, CSV</p>
+                        </div>
+                        <div class="guide-card animate-on-scroll delay-5">
+                            <h2 class="guide-card-title red">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                                <span data-key="guideSection.step6">Settings & Security</span>
+                            </h2>
+                            <p>App Lock, Backup, Language</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact">
+                <div class="section-container">
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-glow"></div>
+                        <div class="contact-header">
+                            <h2 class="section-title" data-key="contactTitle">Priority Support</h2>
+                            <p class="contact-desc" data-key="contactDesc">Direct line to the developer. Get instant
+                                help via email.</p>
+                            <div class="contact-email">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <span>ibrahimtayyab969@gmail.com</span>
+                            </div>
+                        </div>
+                        <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label data-key="nameLabel">Your Name</label>
+                                    <input type="text" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label data-key="emailLabel">Your Email</label>
+                                    <input type="email" placeholder="your@email.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label data-key="messageLabel">Describe your issue</label>
+                                <textarea rows="4" placeholder="How can we help you?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                                <span data-key="sendBtn">Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- PWA Install Prompt Banner -->
+    <div id="pwa-install-banner" class="pwa-banner" style="display: none;">
+        <div class="pwa-banner-content">
+            <div class="pwa-banner-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+            </div>
+            <div class="pwa-banner-text">
+                <strong data-key="pwaInstallTitle">Install Hisab Banao</strong>
+                <span data-key="pwaInstallDesc">Add to home screen for quick access</span>
+            </div>
+            <button id="pwa-install-btn" class="btn btn-primary btn-sm" data-key="pwaInstallBtn">Install</button>
+            <button id="pwa-install-close" class="pwa-close-btn" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- PWA Update Available Banner -->
+    <div id="pwa-update-banner" class="pwa-banner pwa-update-banner" style="display: none;">
+        <div class="pwa-banner-content">
+            <div class="pwa-banner-icon pwa-update-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 2v6h-6" />
+                    <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
+                    <path d="M3 22v-6h6" />
+                    <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
+                </svg>
+            </div>
+            <div class="pwa-banner-text">
+                <strong data-key="pwaUpdateTitle">Update Available!</strong>
+                <span id="pwa-version-text" data-key="pwaUpdateDesc">New version ready to install</span>
+            </div>
+            <button id="pwa-update-btn" class="btn btn-primary btn-sm" data-key="pwaUpdateBtn">Update Now</button>
+            <button id="pwa-update-close" class="pwa-close-btn" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Offline Indicator -->
+    <div id="offline-indicator" class="offline-indicator" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="1" y1="1" x2="23" y2="23" />
+            <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55" />
+            <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39" />
+            <path d="M10.71 5.05A16 16 0 0 1 22.58 9" />
+            <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88" />
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+            <line x1="12" y1="20" x2="12.01" y2="20" />
+        </svg>
+        <span data-key="offlineText">You are offline</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p data-key="footerText">© 2024 Hisab Banao. All Rights Reserved.</p>
+            <p class="footer-dev">Developed by M Ibrahim Memon</p>
+            <div class="footer-links">
+                <button onclick="navigateTo('about')">Privacy Policy</button>
+                <span>•</span>
+                <button onclick="navigateTo('about')">Terms of Service</button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
