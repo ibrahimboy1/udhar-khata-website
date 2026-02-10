@@ -71,11 +71,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'User Guide',
             step1: '1. Getting Started',
-            loginOptions: 'Login Options: Google Login (Recommended) or Guest Mode.',
+            loginOptions: 'Login: Google Login Required for Cloud Backup.',
             step2: '2. Dashboard Overview',
             step3: '3. Managing Customers',
             step4: '4. Adding Transactions',
-            voiceInput: 'Tap the Mic icon and speak naturally, e.g., \'Ahmed 500\' to add instantly.',
+            voiceInput: 'Tap the Mic icon and speak naturally, e.g., \'Ibrahim 500\' to add instantly.',
             step5: 'Reports & Sharing',
             step6: 'Settings & Security'
         },
@@ -124,11 +124,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'صارف گائیڈ',
             step1: '1. شروع کرنا',
-            loginOptions: 'لاگ ان کے اختیارات: Google لاگ ان (تجویز کردہ) یا گیسٹ موڈ۔',
+            loginOptions: 'لاگ ان: کلاؤڈ بیک اپ کے لیے Google لاگ ان ضروری ہے۔',
             step2: '2. ڈیش بورڈ کا جائزہ',
             step3: '3. گاہکوں کا انتظام',
             step4: '4. لین دین شامل کرنا',
-            voiceInput: 'مائیک آئیکن پر ٹیپ کریں اور قدرتی طور پر بولیں، مثلاً، \'احمد 500\' فوری طور پر شامل کرنے کے لیے۔',
+            voiceInput: 'مائیک آئیکن پر ٹیپ کریں اور قدرتی طور پر بولیں، مثلاً، \'ابراہیم 500\' فوری طور پر شامل کرنے کے لیے۔',
             step5: 'رپورٹس اور شیئرنگ',
             step6: 'سیٹنگز اور سیکیورٹی'
         }
@@ -170,11 +170,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'دليل المستخدم',
             step1: '1. البدء',
-            loginOptions: 'خيارات تسجيل الدخول: تسجيل الدخول بـ Google (موصى به) أو وضع الضيف.',
+            loginOptions: 'تسجيل الدخول: تسجيل الدخول بـ Google مطلوب للنسخ الاحتياطي السحابي.',
             step2: '2. نظرة عامة على لوحة التحكم',
             step3: '3. إدارة العملاء',
             step4: '4. إضافة المعاملات',
-            voiceInput: 'اضغط على أيقونة الميكروفون وتحدث بشكل طبيعي، مثل، \'أحمد 500\' للإضافة فورًا.',
+            voiceInput: 'اضغط على أيقونة الميكروفون وتحدث بشكل طبيعي، مثل، \'إبراهيم 500\' للإضافة فورًا.',
             step5: 'التقارير والمشاركة',
             step6: 'الإعدادات والأمان'
         }
@@ -216,11 +216,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: '用户指南',
             step1: '1. 入门',
-            loginOptions: '登录选项：Google 登录（推荐）或访客模式。',
+            loginOptions: '登录：Google 登录是云备份所必需的。',
             step2: '2. 仪表板概览',
             step3: '3. 管理客户',
             step4: '4. 添加交易',
-            voiceInput: '点击麦克风图标并自然说话，例如，"艾哈迈德 500"即可立即添加。',
+            voiceInput: '点击麦克风图标并自然说话，例如，"伊布拉欣 500"即可立即添加。',
             step5: '报告和分享',
             step6: '设置和安全'
         }
@@ -262,11 +262,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'Guía de Usuario',
             step1: '1. Comenzar',
-            loginOptions: 'Opciones de Inicio de Sesión: Google (Recomendado) o Modo Invitado.',
+            loginOptions: 'Inicio de Sesión: Google es requerido para copia de seguridad en la nube.',
             step2: '2. Resumen del Panel',
             step3: '3. Gestionar Clientes',
             step4: '4. Agregar Transacciones',
-            voiceInput: 'Toca el ícono del micrófono y habla naturalmente, ej., \'Ahmed 500\' para agregar instantáneamente.',
+            voiceInput: 'Toca el ícono del micrófono y habla naturalmente, ej., \'Ibrahim 500\' para agregar instantáneamente.',
             step5: 'Informes y Compartir',
             step6: 'Configuración y Seguridad'
         }
@@ -308,11 +308,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'Guide Utilisateur',
             step1: '1. Commencer',
-            loginOptions: 'Options de Connexion: Google (Recommandé) ou Mode Invité.',
+            loginOptions: 'Connexion: Google est requis pour la sauvegarde cloud.',
             step2: '2. Aperçu du Tableau de Bord',
             step3: '3. Gérer les Clients',
             step4: '4. Ajouter des Transactions',
-            voiceInput: 'Appuyez sur l\'icône du micro et parlez naturellement, par ex., \'Ahmed 500\' pour ajouter instantanément.',
+            voiceInput: 'Appuyez sur l\'icône du micro et parlez naturellement, par ex., \'Ibrahim 500\' pour ajouter instantanément.',
             step5: 'Rapports et Partage',
             step6: 'Paramètres et Sécurité'
         }
@@ -400,11 +400,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'Guia do Usuário',
             step1: '1. Começando',
-            loginOptions: 'Opções de Login: Google (Recomendado) ou Modo Convidado.',
+            loginOptions: 'Login: Google é necessário para backup na nuvem.',
             step2: '2. Visão Geral do Painel',
             step3: '3. Gerenciar Clientes',
             step4: '4. Adicionar Transações',
-            voiceInput: 'Toque no ícone do microfone e fale naturalmente, ex., \'Ahmed 500\' para adicionar instantaneamente.',
+            voiceInput: 'Toque no ícone do microfone e fale naturalmente, ex., \'Ibrahim 500\' para adicionar instantaneamente.',
             step5: 'Relatórios e Compartilhamento',
             step6: 'Configurações e Segurança'
         }
@@ -446,11 +446,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'Benutzerhandbuch',
             step1: '1. Erste Schritte',
-            loginOptions: 'Anmeldeoptionen: Google-Anmeldung (Empfohlen) oder Gastmodus.',
+            loginOptions: 'Anmeldung: Google-Anmeldung ist für Cloud-Backup erforderlich.',
             step2: '2. Dashboard-Übersicht',
             step3: '3. Kunden Verwalten',
             step4: '4. Transaktionen Hinzufügen',
-            voiceInput: 'Tippen Sie auf das Mikrofon-Symbol und sprechen Sie natürlich, z.B. \'Ahmed 500\' zum sofortigen Hinzufügen.',
+            voiceInput: 'Tippen Sie auf das Mikrofon-Symbol und sprechen Sie natürlich, z.B. \'Ibrahim 500\' zum sofortigen Hinzufügen.',
             step5: 'Berichte und Teilen',
             step6: 'Einstellungen und Sicherheit'
         }
@@ -492,11 +492,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'ユーザーガイド',
             step1: '1. はじめに',
-            loginOptions: 'ログインオプション：Googleログイン（推奨）またはゲストモード。',
+            loginOptions: 'ログイン：クラウドバックアップにはGoogleログインが必要です。',
             step2: '2. ダッシュボード概要',
             step3: '3. 顧客の管理',
             step4: '4. 取引の追加',
-            voiceInput: 'マイクアイコンをタップして自然に話しかけてください。例：「アミット 500」で即座に追加。',
+            voiceInput: 'マイクアイコンをタップして自然に話しかけてください。例：「イブラヒム 500」で即座に追加。',
             step5: 'レポートと共有',
             step6: '設定とセキュリティ'
         }
@@ -538,11 +538,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'Panduan Pengguna',
             step1: '1. Memulai',
-            loginOptions: 'Opsi Login: Google Login (Direkomendasikan) atau Mode Tamu.',
+            loginOptions: 'Login: Google Login diperlukan untuk backup cloud.',
             step2: '2. Ikhtisar Dashboard',
             step3: '3. Mengelola Pelanggan',
             step4: '4. Menambahkan Transaksi',
-            voiceInput: 'Ketuk ikon Mic dan bicara secara alami, misalnya, \'Ahmed 500\' untuk menambahkan secara instan.',
+            voiceInput: 'Ketuk ikon Mic dan bicara secara alami, misalnya, \'Ibrahim 500\' untuk menambahkan secara instan.',
             step5: 'Laporan dan Berbagi',
             step6: 'Pengaturan dan Keamanan'
         }
@@ -584,11 +584,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'Kullanıcı Rehberi',
             step1: '1. Başlarken',
-            loginOptions: 'Giriş Seçenekleri: Google Girişi (Önerilen) veya Misafir Modu.',
+            loginOptions: 'Giriş: Bulut yedekleme için Google Girişi gereklidir.',
             step2: '2. Kontrol Paneli Genel Bakış',
             step3: '3. Müşterileri Yönetme',
             step4: '4. İşlem Ekleme',
-            voiceInput: 'Mikrofon simgesine dokunun ve doğal konuşun, örn., \'Ahmed 500\' anında eklemek için.',
+            voiceInput: 'Mikrofon simgesine dokunun ve doğal konuşun, örn., \'Ibrahim 500\' anında eklemek için.',
             step5: 'Raporlar ve Paylaşım',
             step6: 'Ayarlar ve Güvenlik'
         }
@@ -906,11 +906,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'Gebruikersgids',
             step1: '1. Aan de Slag',
-            loginOptions: 'Inlogopties: Google Login (Aanbevolen) of Gastmodus.',
+            loginOptions: 'Inloggen: Google Login is vereist voor cloudback-up.',
             step2: '2. Dashboard Overzicht',
             step3: '3. Klanten Beheren',
             step4: '4. Transacties Toevoegen',
-            voiceInput: 'Tik op het microfoonpictogram en spreek natuurlijk.',
+            voiceInput: 'Tik op het microfoonpictogram en spreek natuurlijk, bijv., \'Ibrahim 500\' om direct toe te voegen.',
             step5: 'Rapporten en Delen',
             step6: 'Instellingen en Beveiliging'
         }
@@ -1044,11 +1044,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'Panduan Pengguna',
             step1: '1. Memulakan',
-            loginOptions: 'Pilihan Log Masuk: Google (Disyorkan) atau Mod Tetamu.',
+            loginOptions: 'Log Masuk: Google diperlukan untuk sandaran awan.',
             step2: '2. Gambaran Keseluruhan Papan Pemuka',
             step3: '3. Mengurus Pelanggan',
             step4: '4. Menambah Transaksi',
-            voiceInput: 'Ketik ikon Mik dan bercakap secara semula jadi.',
+            voiceInput: 'Ketik ikon Mik dan bercakap secara semula jadi, cth., \'Ibrahim 500\' untuk menambah serta-merta.',
             step5: 'Laporan dan Perkongsian',
             step6: 'Tetapan dan Keselamatan'
         }
@@ -1274,11 +1274,11 @@ const TRANSLATIONS = {
         guideSection: {
             title: 'یوزَر گایِڈ',
             step1: '1. شروع کَرُن',
-            loginOptions: 'لاگ اِن آپشَنز: گوگَل (تَجویز) یا گیسٹ موڈ۔',
+            loginOptions: 'لاگ اِن: کلاؤڈ بیک اپ باپَتہ گوگَل ضروری چھُ۔',
             step2: '2. ڈیش بورڈ جایزٕ',
             step3: '3. گاہکَن ہُند سَمبال',
             step4: '4. لین دین شامِل کَرُن',
-            voiceInput: 'مایک آیکَن ٹیپ کَرِیو تہِ قُدرَتی طور بولِیو۔',
+            voiceInput: 'مایک آیکَن ٹیپ کَرِیو تہِ قُدرَتی طور بولِیو، مثلاً، \'ابراہیم 500\'۔',
             step5: 'رپورٹَن تہِ شیئَرنگ',
             step6: 'سیٹِنگز تہِ سیکیورٹی'
         }
@@ -1309,7 +1309,7 @@ const TRANSLATIONS = {
         footerText: '© 2024 حساب ٺاھيو. سڀ حق محفوظ آھن.',
         aboutSection: {
             title: 'حساب ٺاھيو بابت',
-            subtitle: 'ھندستان جي ليجر نظام کي ڊجيٽل ڪرڻ',
+            subtitle: 'توھان جو ڊجيٽل ليجر حل',
             developerTitle: 'ليڊ ڊولپر ۽ باني',
             whoWeAreTitle: 'اسين ڪير آھيون',
             whoWeAreDesc: 'حساب ٺاھيو ھڪ پرجوش پروجيڪٽ آھي جيڪو ننڍن ڪاروبارين، دڪاندارن ۽ ماڻھن کي روزاني ليڻ ڏيڻ سنڀالڻ ۾ مدد ڪرڻ لاءِ تيار ڪيو ويو آھي.',
